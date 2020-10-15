@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Sidebar} from './Sidebar.js';
+import {Chat} from './Chat.js';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // BEM Naming convention
+    <div className="app">
+      {/* <h1>Hello Kavya !!</h1> */}
+      <div className="app_body">
+        <Router>
+        <Sidebar />
+          <Switch>        
+            <Route path="/rooms:roomId">             
+              <Chat/>
+            </Route>
+            <Route path="/">              
+              <Chat/>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
 }
