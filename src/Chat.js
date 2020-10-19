@@ -5,7 +5,7 @@ import AttachFile from '@material-ui/icons/AttachFileOutlined';
 import MoreVert from '@material-ui/icons/MoreVertOutlined';
 import InsertEmoticon from '@material-ui/icons/InsertEmoticonOutlined';
 import MicIcon from '@material-ui/icons/MicOutlined';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import db from './firebase';
 import './Chat.css'
 
@@ -17,7 +17,7 @@ export function Chat(props) {
 
     useEffect(()=>{
         if(roomId){
-            db.collection('rooms')
+            db.collection("rooms")
             .doc(roomId)
             .onSnapshot(snapshot => (
                 setRoomName(snapshot.data().name)
@@ -39,7 +39,8 @@ export function Chat(props) {
             <div className="chat_header">
                 <Avatar src={`https://avatars.dicebear.com/api/human/${Math.floor(Math.random()*5000)}.svg`}/>
                 <div className="chat_headerInfo">
-                    <h3>{roomName}</h3>
+                <h3>{roomId}</h3>
+                    <h3> {roomName} </h3>
                     <p>Last Seen at...</p>
                 </div>
                 <div className="chat_headerRight">
